@@ -12,11 +12,14 @@ end
 # new
 get '/contacts/new' do 
   "This is the contacts new action"
+  erb :'contacts/new'
 end
 
 # create
 post '/contacts' do
-  "This is the contacts create action"
+  puts params 
+  @contact = Contact.create(params[:contact])
+  redirect '/contacts'
 end
 
 # member actions
